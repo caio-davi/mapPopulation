@@ -38,7 +38,50 @@ map.on("draw:edited", function(e) {
   drawCircle(circle);
 });
 
-function drawCircle(circle) {}
+function drawCircle(circle) {
+  messageContents = {
+    data: {
+      location: {
+        type: "Circle",
+        units: "Meters",
+        radius: circle.getRadius(),
+        coordinates: circle.toGeoJSON().geometry.coordinates
+      },
+      points: document.getElementById("rasterPointsChk").checked
+    }
+  };
+  var settings = {
+    type: "POST",
+    url: "/population",
+    data: JSON.stringify(messageContents),
+    dataType: "json",
+    contentType: "application/json"
+  };
+  $.ajax(settings).done(function(response) {
+    console.log(response);
+    var population = response.data.population;
+    circle.population = population;
+    circle.editable = true;
+    color = "blue";
+    circle.setStyle({
+      color: color,
+      opacity: 0.8,
+      weight: 2,
+      fillColor: color,
+      fillOpacity: 0.35
+    });
+    circle.bindPopup(circleInfo(circle));
+    for (let i = 0; i < response.data.points.length; i++) {
+      var point = L.marker(
+        [response.data.points[i][1], response.data.points[i][0]],
+        { icon: redCrossIcon }
+      );
+      point.addTo(rasterPoints);
+    }
+  });
+}
+
+function circleInfo(circle) {}
 
 function clearRasterPoints() {
   map.removeLayer(rasterPoints);
