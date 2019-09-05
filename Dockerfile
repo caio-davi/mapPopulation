@@ -1,6 +1,6 @@
 FROM python:3.6-slim-stretch
 
-ADD requirements.txt
+ADD requirements.txt requirements.txt
 
 RUN apt-get update && \
     apt-get install -y \
@@ -28,9 +28,9 @@ RUN dpkg-reconfigure locales && \
 
 ENV LC_ALL C.UTF-8
 
-WORKDIR /source
+WORKDIR /src
 COPY . .
-ENV FLASK_APP app.py
+ENV FLASK_APP /src/app.py
 ENV FLASK_ENV development
 EXPOSE 5000
 

@@ -6,8 +6,8 @@ services:
 
     volumes:
       - type: bind
-        source: .
-        target: /source
+        source: ./src
+        target: /src
 
     ports:
       - "5000:5000"

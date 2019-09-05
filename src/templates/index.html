@@ -1,0 +1,64 @@
+<html>
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    sizes="32x32"
+    href="{{ url_for('static', filename='favicon.ico') }}"
+  />
+
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='leaflet/leaflet.css')}}"
+    />
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='leaflet/draw/leaflet.draw.css')}}"/> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+    <script src="{{url_for('static', filename='jquery-2.2.2.min.js')}}"></script>
+    <script src="{{url_for('static', filename='leaflet/leaflet.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.css"
+    />
+    <script>
+      src =
+        "https://rawgit.com/w8r/Leaflet.draw.drag/master/dist/Leaflet.draw.drag-src.js";
+    </script>
+  </head>
+
+  <body>
+    <title>Map Project</title>
+    <div id="divmap">
+      <div id="mapid"></div>
+      <div class="leaflet-top leaflet-right">
+        <div>
+          <br />
+          <input
+            type="checkbox"
+            id="rasterPointsChk"
+            class="span3 leaflet-control"
+          />
+          Show Raster Points. (<b>Slow for big areas</b>)
+          <input
+            type="button"
+            id="clearRasterBtn"
+            value="Clear Raster Points"
+            onclick="clearRasterPoints()"
+            class="btnStyle span3 leaflet-control"
+          />
+        </div>
+      </div>
+      <div class="leaflet-top leaflet-right"></div>
+    </div>
+    <script>
+      var bcs = [30.628, -96.3344];
+      var map = L.map("mapid").setView(bcs, 12);
+      var redCrossIcon = L.icon({
+        iconUrl: "{{ url_for('static', filename='images/redCross.png') }}",
+        iconSize: [30, 30],
+        iconAnchor: [15, 15]
+      });
+    </script>
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+  </body>
+</html>
