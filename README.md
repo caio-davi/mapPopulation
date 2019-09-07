@@ -8,6 +8,7 @@ Just compose build and up and you will hav ethe Docker container up and running:
 $ docker-compose build
 $ docker-compose up
 ```
+If everythong went well, you should be able to run the application in http://localhost:5000.
 
 ## Built With
 
