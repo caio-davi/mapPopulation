@@ -9,6 +9,12 @@ $ docker-compose build
 $ docker-compose up
 ```
 
+## Built With
+
+- [Flask](http://flask.pocoo.org/) - A `Python` web framework.
+- [Jinja2](http://jinja.pocoo.org/docs/2.10/) - A web templating language.
+- [Leaflet](https://leafletjs.com/) - A JavaScript library for interactive maps.
+- [SEDAC](https://sedac.ciesin.columbia.edu/) - NASA Socioeconomic Data and Applications Center
 
 ## Copyright
 Copyright (c) Caio Davi
