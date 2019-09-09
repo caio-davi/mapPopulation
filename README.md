@@ -18,9 +18,10 @@ If everything went well, you should be able to run the application in http://loc
 - [SEDAC](https://sedac.ciesin.columbia.edu/) - NASA Socioeconomic Data and Applications Center
 
 ## Copyright
-Copyright (c) Caio Davi
+Copyright&copy; Caio Davi
 
 Distributed under the MIT License (MIT).
 
-> Notice: SEDAC asks for cite them when their data is used. Please take a look [here](https://sedac.ciesin.columbia.edu/citations) for more information. This is the recommended citation:
+> Notice: If you want to use this app, please keep in mind SEDAC asks for cite them when their data is used. Please take a look [here](https://sedac.ciesin.columbia.edu/citations) for more information. 
+This is the recommended citation:
 > <br>_Center for International Earth Science Information Network - CIESIN - Columbia University. 2018. Gridded Population of the World, Version 4 (GPWv4): Population Count, Revision 11. Palisades, NY: NASA Socioeconomic Data and Applications Center (SEDAC). https://doi.org/10.7927/H4JW8BX5. Accessed DAY MONTH YEAR._
