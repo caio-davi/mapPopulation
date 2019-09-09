@@ -1,4 +1,6 @@
-# mapPopulation
+# Texas Population
+
+Simple app to get the Texas population. This could be easily adapted to any state/region/country using data available [here](https://sedac.ciesin.columbia.edu/). 
 
 ## Getting Started 
 
