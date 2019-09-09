@@ -6,7 +6,7 @@ import rasterio
 from math import sin, cos, sqrt, atan2, radians, asin, degrees
 
 app = Flask(__name__, instance_relative_config=True)
-path = 'rasters/texas_2015_30_sec.tif'
+path = 'rasters/texas.tif'
 dataset = rasterio.open(path)
 band1 = dataset.read(1)
 affine = dataset.transform
