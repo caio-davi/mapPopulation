@@ -52,7 +52,7 @@
     </div>
     <script>
       var bcs = [30.628, -96.3344];
-      var map = L.map("mapid").setView(bcs, 12);
+      var map = L.map("mapid", { maxZoom: 15, minZoom: 10 }).setView(bcs, 12);
       var redCrossIcon = L.icon({
         iconUrl: "{{ url_for('static', filename='images/redCross.png') }}",
         iconSize: [30, 30],

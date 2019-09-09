@@ -1,7 +1,6 @@
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
-    'Imagery © <a href="https://www.openstreetmap.org">OpenStreetMap</a>',
-  maxZoom: 18
+    'Imagery © <a href="https://www.openstreetmap.org">OpenStreetMap</a>'
 }).addTo(map);
 
 var drawnItems = new L.FeatureGroup();
@@ -81,7 +80,23 @@ function drawCircle(circle) {
   });
 }
 
-function circleInfo(circle) {}
+function circleInfo(circle) {
+  if (circle._mRadius >= 1000) {
+    var mileRadius = (Math.pow(circle._mRadius / 1000, 2) * 3.14).toFixed(2);
+    var contents =
+      "<b>Coverage Area: </b>" + conversion(mileRadius) + " sq mi<br>";
+  } else {
+    var mileRadius = (Math.pow(circle._mRadius, 2) * 3.14).toFixed(2);
+    var contents =
+      "<b>Coverage Area: </b>" + conversion(mileRadius) + " sq ft<br>";
+  }
+  contents =
+    contents +
+    "<b>Population: </b>" +
+    Number(circle.population).toFixed(2) +
+    "<br>";
+  return contents;
+}
 
 function clearRasterPoints() {
   map.removeLayer(rasterPoints);

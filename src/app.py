@@ -27,9 +27,9 @@ def population():
             latitude = float(location['coordinates'][1])
             radius = float(location['radius'])
             response = getPopulation(longitude, latitude, radius, points)
-        except (KeyError, TypeError, ValueError):
-            raise JsonError(description='Invalid value.')
-        return json_response(data = response, headers_={'X-STATUS': 'ok'})
+        except (KeyError, TypeError, ValueError, IndexError):
+            return json_response(501)
+        return  json_response(data = response, headers_={'X-STATUS': 'ok'})
     else:
         raise JsonError(description='Invalid value.')
 
@@ -81,14 +81,11 @@ def get_population(vertice1, vertice2, band, affine, center = False, radius = Fa
     vertice2_xy = rasterio.transform.rowcol(affine, vertice2[0], vertice2[1])
     population = 0
     pointsArray = []
-    try:
-        for i in range(vertice1_xy[0], vertice2_xy[0]+1):
-            for j in range(vertice1_xy[1], vertice2_xy[1]+1):
-                new_point = rasterio.transform.xy(affine , i, j, offset='center')
-                if distance(center, new_point) <= radius:
-                    population += band[i][j]
-                    if points == 'True':
-                        pointsArray.append(new_point)
-    except (IndexError):
-        print('Error: IndexError in ',center) if center else print('Error: Index Error.')
+    for i in range(vertice1_xy[0], vertice2_xy[0]+1):
+        for j in range(vertice1_xy[1], vertice2_xy[1]+1):
+            new_point = rasterio.transform.xy(affine , i, j, offset='center')
+            if distance(center, new_point) <= radius:
+                population += band[i][j]
+                if points == 'True':
+                    pointsArray.append(new_point)
     return population, pointsArray
