@@ -1,6 +1,7 @@
-# Texas Population
+# Map Population
 
-Simple app to get the Texas population. This could be easily adapted to any state/region/country using data available [here](https://sedac.ciesin.columbia.edu/). 
+Simple app to get the population given a circle in the map, this is a beta version focusing only the state of Texas. You might notice some overvalue in the population sizes, probably because the population values used here are an estimation of population count for the year 2020. 
+Either the map coverage and the year's population count could be easily adapted to any state/region/country using data available [here](https://sedac.ciesin.columbia.edu/). 
 
 ## Getting Started 
 
