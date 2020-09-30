@@ -16,6 +16,7 @@ $ docker-compose build
 $ docker-compose up
 ```
 If everything went well, you should be able to run the application in http://localhost:5000.
+This [article](https://medium.com/analytics-vidhya/how-to-use-nasa-open-access-data-to-find-worldwide-populations-230d19da5763?source=friends_link&sk=410dd39d1711144bf97ee3651d8d29a8) is a good walkthrough for some concepts used in this project.
 
 ## Built With
 
